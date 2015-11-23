@@ -1,0 +1,54 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			get_json();
+		});
+	</script>
+</head>
+<body>
+	<div class="menu1">
+		<br id="tab2"/><br id="tab3"/>
+		<a href="#tab1">Запрос</a><a href="#tab2">Ответ</a><a href="#tab3">История</a>
+		<div></div>
+		<div>
+			Ответ
+		</div>
+		<div>
+			<br>
+			<button onclick="add_new_row()">Добавить строку</button>
+			<button onclick="get_json()">Получить json данные</button>
+			<input type="text" class="text2" id="all_item">
+			<input type="text" class="text2" id="kol_pages">
+			<br>
+			<label for="kol_on_page">Показывать на странице:</label>
+			<select id="kol_on_page" onchange="build();">
+				<option>10</option>
+				<option>20</option>
+				<option>30</option>
+				<option>50</option>
+				<option selected>100</option>
+				<option>Все записи</option>
+			</select>
+			<button id="next_page" onclick="change_page('+');">Вперед</button>
+			<button id="prev_page" onclick="change_page('-');">Назад</button>
+			<input type="text" class="text" id="pages">
+			<input type="text" placeholder="Поиск" id="search" onkeyup="search()">
+			<input type="text" class="text" id="message">
+			<table id="table1">
+				<thead>
+					<tr>
+						<td>Имя</td>
+						<td>Пол</td>
+						<td>Дата рождения</td>
+						<td>Номер телефона</td>
+					</tr>
+				</thead>
+				<tbody id="tb"></tbody>
+			</table>
+		</div>
+	</div>
+</body>
