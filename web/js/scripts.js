@@ -112,7 +112,6 @@ function build() {
     $(".row").remove();  // Как удалить все элементы класса на чистом JS????
     if (kol_on_page != "Все записи") {
         var kol_page = Math.floor(len/kol_on_page);
-        console.log(kol_page);
         if (len % kol_on_page > 0) kol_page++;
         start = window.page * kol_on_page;
         end = start + kol_on_page * 1;
@@ -126,5 +125,22 @@ function build() {
     $("#pages").val("Показаны записи с " + start + " по " + end);
     for (i=start; i<end; i++) {
         add(i);
+    }
+}
+
+function send_data() {
+    var name = $('#name').val();
+    var pas = $('#pas').val();
+    console.log(name + " " + pas);
+    if (name == "" || pas == "") {
+        $('#message-zapros').val("Введите имя и пароль");
+    } else {
+        var ajax = new XMLHttpRequest();
+        var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
+        ajax.open('GET', url, false);
+        ajax.send();
+        var response = ajax.responseText;
+        console.log(response);
+        $('#message-zapros').val(response);
     }
 }

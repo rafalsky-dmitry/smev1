@@ -1,8 +1,8 @@
 <html>
 <head>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="js/scripts.js"></script>
-	<script src="js/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/scripts.js"></script>
+	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			get_json();
@@ -13,7 +13,13 @@
 	<div class="menu1">
 		<br id="tab2"/><br id="tab3"/>
 		<a href="#tab1">Запрос</a><a href="#tab2">Ответ</a><a href="#tab3">История</a>
-		<div></div>
+		<div>
+			Запрос
+			<input type="text" id="name" placeholder="Введите имя">
+			<input type="text" id="pas" placeholder="Введите пароль">
+			<br><button id="send" onclick="send_data()">Отправить</button>
+			<input type="text" id="message-zapros" style="border: none">
+		</div>
 		<div>
 			Ответ
 		</div>
