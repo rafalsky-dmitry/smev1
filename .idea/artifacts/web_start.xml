@@ -30,6 +30,7 @@
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.3-1102-jdbc41" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:6.1.25" />
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="smev1" />

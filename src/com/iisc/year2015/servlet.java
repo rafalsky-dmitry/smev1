@@ -25,11 +25,7 @@ public class servlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
-
-        if (username.equals("master") && password.equals("yoda")) {
-            out.print("Welcome");
-        } else {
-            out.print("Incorrect login or password");
-        }
+        workdatabase wdb = new workdatabase();
+        out.print(wdb.checkUser(username, password));
     }
 }
