@@ -7,7 +7,16 @@ import org.dom4j.Element;
  */
 public class Header {
 
-    public static void CreateHeader(Element root) {
+    String Cert;
+    String Hash;
+    String Sign;
+    public Header(String SendCert, String SendHash, String SendSign) {
+        Cert = SendCert;
+        Hash = SendHash;
+        Sign = SendSign;
+    }
+
+    public void CreateHeader(Element root) {
         Element Header = root.addElement("soap:Header");
         Element Security = Header.addElement("wsse:Security");
         Security.addAttribute("soap:actor", "http://smev.gosuslugi.ru/actors/smev");
@@ -16,7 +25,7 @@ public class Header {
         BinarySecurityToken.addAttribute("ValueType", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3");
         BinarySecurityToken.addAttribute("wsu:Id", "CertId-1");
         BinarySecurityToken.addAttribute("xmlns:wsu", "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd");
-        //BinarySecurityToken.addText("CERT_HERE");
+        BinarySecurityToken.addText(Cert);
         Element Signature = Security.addElement("ds:Signature");
         Signature.addAttribute("Id", "Signature-1");
         Element SignedInfo = Signature.addElement("ds:SignedInfo");
@@ -30,9 +39,9 @@ public class Header {
         Element Transform = Transforms.addElement("ds:Transform");
         Element DigestMethod = Reference.addElement("ds:DigestMethod");
         Element DigestValue = Reference.addElement("ds:DigestValue");
-        //DigestValue.addText("HASH_HERE");
+        DigestValue.addText(Hash);
         Element SignatureValue = Signature.addElement("ds:SignatureValue");
-        //SignatureValue.addText("SIGN_HERE");
+        SignatureValue.addText(Sign);
         Element KeyInfo = Signature.addElement("ds:KeyInfo");
         KeyInfo.addAttribute("Id", "KeyId-1");
         Element SecurityTokenReference = KeyInfo.addElement("wsse:SecurityTokenReference");

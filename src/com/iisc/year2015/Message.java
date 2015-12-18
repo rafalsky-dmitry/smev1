@@ -2,33 +2,48 @@ package com.iisc.year2015;
 
 import org.dom4j.Element;
 
+import java.util.Date;
+
 /**
  * Created by Dmitry on 16.11.2015.
  */
 public class Message {
+    String SName;
+    String SCode;
+    String RName;
+    String RCode;
+    String OName;
+    String OCode;
 
+    public Message(String SendName, String Sendcode, String RecName, String RecCode, String OrName, String OrCode) {
+        SName = SendName;
+        SCode = Sendcode;
+        RName = RecName;
+        RCode = RecCode;
+        OName = OrName;
+        OCode = OrCode;
+    };
 
-    public static void CreateMessage (Element root) {
+    public void CreateMessage (Element root) {
         Element Message = root.addElement("smev:Message");
         Message.addAttribute("xmlns:smev","http://smev.gosuslugi.ru/rev120315");
 
         Element Sender = Message.addElement("smev:Sender");
         Element Code = Sender.addElement("smev:Code")
-                .addText("000000541");
+                .addText(SCode);
         Element Name = Sender.addElement("smev:Name")
-                .addText("Sender Name");
-
+                .addText(SName);
         Element Recipient = Message.addElement("smev:Recipient");
         Code = Recipient.addElement("smev:Code")
-                .addText("000000542");
+                .addText(RCode);
         Name = Recipient.addElement("smev:Name")
-                .addText("Recipient Code");
+                .addText(RName);
 
         Element Originator = Message.addElement("smev:Originator");
         Code = Originator.addElement("smev:Code")
-                .addText("000000541");
+                .addText(OCode);
         Name = Originator.addElement("smev:Name")
-                .addText("Sender Name");
+                .addText(OName);
 
         Element TypeCode = Message.addElement("smev:TypeCode")
                 .addText("GSRV");
