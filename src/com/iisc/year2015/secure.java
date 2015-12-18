@@ -15,7 +15,6 @@ import java.security.cert.CertificateException;
 public class secure {
     public static void main(String[] args) throws NoSuchProviderException, NoSuchAlgorithmException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException {
         Security.addProvider(new ViPNetProvider());
-        String message = "";
         MessageDigest messageDigest = MessageDigest.getInstance("GOST3411-94", "ViPNet");
         messageDigest.update("".getBytes());
         byte[] digestValue = messageDigest.digest();
@@ -23,16 +22,14 @@ public class secure {
 
         KeyStore keyStore = KeyStore.getInstance("ViPNetContainer","ViPNet");
         keyStore.load(null, null);
-        InputStream inputStream = new FileInputStream("C:\\Users\\SG_Hetz\\IdeaProjects\\token");
+        InputStream inputStream = new FileInputStream("C:\\token");
         keyStore.load(inputStream, null);
 
         String alias = "key";
         char[] password = "1234567890".toCharArray();
         PrivateKey pKey = (PrivateKey) keyStore.getKey(alias, password);
-
-
-        System.out.println(keyStore);
-        System.out.println(pKey);
+        //System.out.println(keyStore);
+        //System.out.println(pKey);
 
     }
 }

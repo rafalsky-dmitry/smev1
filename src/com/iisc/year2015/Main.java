@@ -26,5 +26,10 @@ public class Main {
         MesageData mesagedata = new MesageData("DId");
         mesagedata.CreateMesageData(getDictionary);
         System.out.println(root.asXML()); // выводим
+
+
+
     }
+
+
 }
