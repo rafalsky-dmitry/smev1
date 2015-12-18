@@ -135,6 +135,10 @@ function send_data() {
     if (name == "" || pas == "") {
         $('#message-zapros').val("Введите имя и пароль");
     } else {
+        var json = {
+            "name" : name,
+            "pas" : pas
+        }
         var ajax = new XMLHttpRequest();
         var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
         ajax.open('GET', url, false);

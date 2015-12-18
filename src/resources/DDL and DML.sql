@@ -12,7 +12,7 @@ CREATE TABLE request (
  pas varchar(80),
  last_name varchar(80),
  first_name varchar(80)
- );
+);
  
 DROP TABLE request;
 

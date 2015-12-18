@@ -15,12 +15,8 @@ import java.io.PrintWriter;
 public class servlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException
     {
-
         String username = req.getParameter("name");
         String password = req.getParameter("pas");
-        //String username = "master";
-        //String password = "yoda";
-
 
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
