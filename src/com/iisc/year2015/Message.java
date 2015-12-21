@@ -17,7 +17,7 @@ public class Message {
     String RCode;
     String OName;
     String OCode;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss");
     Date date = new Date();
 
     public Message(String SendName, String Sendcode, String RecName, String RecCode, String OrName, String OrCode) {
