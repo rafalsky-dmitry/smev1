@@ -140,7 +140,8 @@ function send_data() {
             "pas" : pas
         }
         var ajax = new XMLHttpRequest();
-        var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
+        //var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
+        var url = '/web-start/login?name='+name+'&pas='+pas;
         ajax.open('GET', url, false);
         ajax.send();
         var response = ajax.responseText;

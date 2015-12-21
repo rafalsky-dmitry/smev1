@@ -2,7 +2,10 @@ package com.iisc.year2015;
 
 import org.dom4j.Element;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Dmitry on 16.11.2015.
@@ -14,6 +17,8 @@ public class Message {
     String RCode;
     String OName;
     String OCode;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = new Date();
 
     public Message(String SendName, String Sendcode, String RecName, String RecCode, String OrName, String OrCode) {
         SName = SendName;
@@ -50,7 +55,7 @@ public class Message {
         Element Status = Message.addElement("smev:Status")
                 .addText("REQUEST");
         Element Date = Message.addElement("smev:Date")
-                .addText("2000-01-01T00:00:00");
+                .addText(dateFormat.format(date));
         Element ExchangeType = Message.addElement("smev:ExchangeType")
                 .addText("3");
         Element ServiceCode = Message.addElement("smev:ServiceCode")
