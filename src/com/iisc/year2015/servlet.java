@@ -28,6 +28,6 @@ public class servlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         workdatabase wdb = new workdatabase();
         out.print(wdb.checkUser(username, password));
-        out.print(username + ' ' + password);
+        //out.print(username + ' ' + password);
     }
 }
