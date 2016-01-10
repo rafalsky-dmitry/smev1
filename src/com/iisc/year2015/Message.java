@@ -3,9 +3,7 @@ package com.iisc.year2015;
 import org.dom4j.Element;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Dmitry on 16.11.2015.
@@ -17,7 +15,7 @@ public class Message {
     String RCode;
     String OName;
     String OCode;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     Date date = new Date();
 
     public Message(String SendName, String Sendcode, String RecName, String RecCode, String OrName, String OrCode) {
