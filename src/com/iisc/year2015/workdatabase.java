@@ -1,6 +1,6 @@
 package com.iisc.year2015;
 
-import com.iisc.year2015.Database;
+import com.iisc.year2015.DB;
 import javafx.scene.chart.PieChart;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -21,7 +21,7 @@ public class workdatabase {
     private void createSessionFactory(){
         dbSessions = new AnnotationConfiguration()
                 .configure("/resources/hibernate.cfg.xml")
-                .addAnnotatedClass(Database.class)
+                .addAnnotatedClass(DB.class)
                 .buildSessionFactory();
     }
 
@@ -30,14 +30,14 @@ public class workdatabase {
         Session session = dbSessions.openSession();
         try
         {
-            Query query = session.createQuery("from Database where login = :login AND pas = :pas");
+            Query query = session.createQuery("from DB where login = :login AND pas = :pas");
             query.setParameter("login", login);
             query.setParameter("pas", pas);
             List list = query.list();
             String otv ="";
             for (Iterator iterator = list.iterator(); iterator.hasNext();)
             {
-                Database fm = (Database) iterator.next();
+                DB fm = (DB) iterator.next();
                 otv = otv + "Привет " + fm.getFirst_name() + " " + fm.getLast_name();
                 //System.out.print("Last name: " + fm.getLastName() + "\nFirst name: " + fm.getFirstName() + "\nMiddle name: " + fm.getMiddleName() + "\nAge: " + fm.getAge() + "\n\n");
             }
