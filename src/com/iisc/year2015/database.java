@@ -11,6 +11,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "request")
 public class Database {
+    @Id
+    @Column(name="id")
+    private int id;
+
+    @Column(name="login")
+    private String login;
+
+    @Column(name="pas")
+    private String pas;
+
+    @Column(name="last_name")
+    private String last_name;
+
+    @Column(name="first_name")
+    private String first_name;
+
+    public Database() {}
+
     public int getId() {
         return id;
     }
@@ -51,22 +69,6 @@ public class Database {
         this.first_name = first_name;
     }
 
-    @Id
-    @Column(name="id")
-    private int id;
 
-    @Column(name="login")
-    private String login;
-
-    @Column(name="pas")
-    private String pas;
-
-    @Column(name="last_name")
-    private String last_name;
-
-    @Column(name="first_name")
-    private String first_name;
-
-    public Database() {}
 
 }
