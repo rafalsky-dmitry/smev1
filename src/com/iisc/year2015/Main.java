@@ -4,7 +4,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import ru.infotecs.crypto.ViPNetProvider;
+//import ru.infotecs.crypto.ViPNetProvider;
 
 import java.io.FileInputStream;
 import java.io.IOException;
