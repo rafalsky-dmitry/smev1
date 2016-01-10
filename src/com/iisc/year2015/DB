@@ -10,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "request")
-public class Database {
+public class DB {
     @Id
     @Column(name="id")
     private int id;
@@ -27,7 +27,7 @@ public class Database {
     @Column(name="first_name")
     private String first_name;
 
-    public Database() {}
+    public DB() {}
 
     public int getId() {
         return id;
