@@ -1,5 +1,9 @@
 package com.iisc.year2015;
 
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +17,17 @@ import java.io.PrintWriter;
  */
 @WebServlet("/login")
 public class servlet extends HttpServlet {
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException
-    {
-        String username = req.getParameter("name");
-        String password = req.getParameter("pas");
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        req.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
+        JsonReader reader = Json.createReader(request.getInputStream());
+        JsonObject newJson = reader.readObject();
+        reader.close();
+        String username = newJson.getString("name");
+        String password = newJson.getString("pas");
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         workdatabase wdb = new workdatabase();
         out.print(wdb.checkUser(username, password));
+        out.print(username + ' ' + password);
     }
 }

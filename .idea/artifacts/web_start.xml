@@ -33,10 +33,10 @@
           <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:6.1.25" />
         </element>
         <element id="directory" name="classes">
-          <element id="module-output" name="smev1" />
+          <element id="module-output" name="test1_Json" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="smev1/web/Web" />
+      <element id="javaee-facet-resources" facet="test1_Json/web/Web" />
     </root>
   </artifact>
 </component>

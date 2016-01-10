@@ -133,15 +133,16 @@ function send_data() {
     if (name == "" || pas == "") {
         $('#message-zapros').val("Введите имя и пароль");
     } else {
+        var ajax = new XMLHttpRequest();
+        //var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
+        //var url = '/web-start/login?name='+name+'&pas='+pas;
         var json = {
             "name" : name,
             "pas" : pas
         }
-        var ajax = new XMLHttpRequest();
-        //var url = 'http://127.0.0.1:8082/web-start/login?name='+name+'&pas='+pas;
-        var url = '/web-start/login?name='+name+'&pas='+pas;
-        ajax.open('GET', url, false);
-        ajax.send();
+        var url = '/web-start/login';
+        ajax.open('POST', url, false);
+        ajax.send(JSON.stringify(json));
         var response = ajax.responseText;
         console.log(response);
         $('#message-zapros').val(response);
