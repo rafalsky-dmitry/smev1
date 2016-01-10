@@ -60,6 +60,9 @@ function search() {
     }
 }
 
+/*
+Функция добавляет строку, передаваемую в параметре в таблицу
+ */
 function add(i) {
     var tr = document.createElement('tr');
     var fio = document.createElement('td');
@@ -83,6 +86,10 @@ function add(i) {
     document.getElementById('tb').appendChild(tr);
 }
 
+/*
+Данные в таблице отображаются постранично, в зависимости от того, какое количество выбрано на страницу.
+Функция позволяет переключаться между страницами
+ */
 function change_page(num) {
     var len = window.context['documents'].length;
     var kol_on_page = $("#kol_on_page").val();
@@ -100,6 +107,9 @@ function change_page(num) {
     }
 }
 
+/*
+Функция строящая талбицу: в ней производится расчет количества страниц, элементов на них, их передача на построение
+ */
 function build() {
     var i = 0;
     var len = window.context['documents'].length;
@@ -126,6 +136,9 @@ function build() {
     }
 }
 
+/*
+Функция для вкладки "Запрос": отправляет данные на сервлет
+ */
 function send_data() {
     var name = $('#name').val();
     var pas = $('#pas').val();
